@@ -1,0 +1,14 @@
+{
+  "name": "sendfiles",
+  "version": "1.0.0",
+  "description": "send files in your house with differents device",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Manuel Garcia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
