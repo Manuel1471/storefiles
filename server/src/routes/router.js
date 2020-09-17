@@ -9,13 +9,14 @@ const moveFile = (file,path) => {
 
 router.post('/:path?', (req,res)=>{
     const files = res.files.documents;
+    const path = '/home/manuel1471/Escritorio/files';
     if(Array.isArray(files)){
         files.forEach(file => {
-            moveFile(file, '/home/manuel1471/Escritorio/files');
+            moveFile(file, path);
         });
     }
     else{
-        moveFile(files,'/home/manuel1471/Escritorio/files');
+        moveFile(files,path);
     }
     res.send({ message: 'Files successfully stored'});
 });
