@@ -31,6 +31,7 @@ export class FileManagerComponent implements OnInit {
   archivos: string[];
   canNavigateUp = true;
   path: string;
+  pathF: string;
   pathHistory: string[] = [];
 
   @Input() text = 'Upload';
@@ -56,7 +57,7 @@ export class FileManagerComponent implements OnInit {
   }
 
   refresh(){
-    if(this.path === '\\'){
+    if(this.pathF === '\\'){
       this.Load('');
     }else{
       this.Load(this.path);
@@ -66,8 +67,11 @@ export class FileManagerComponent implements OnInit {
   Load(ruta:string){
     this.fileElements = [];
     this.fileS.consultar(ruta).subscribe(data => {
-      this.path = data.path;
-      if(this.path === '\\'){
+      var string = data.path;
+      var regex = /\\/g;
+      this.path = string.replace(regex, '-');
+      this.pathF = data.path;
+      if(this.pathF === '\\'){
         this.canNavigateUp = false;
       }else{
         this.canNavigateUp = true;
@@ -90,7 +94,7 @@ export class FileManagerComponent implements OnInit {
   }
 
   openDirectory(element: FileElement) {
-    if(this.path === '\\'){
+    if(this.pathF === '\\'){
       this.pathHistory.push(this.path);
       this.Load(element.name);
     }else{
@@ -161,7 +165,7 @@ export class FileManagerComponent implements OnInit {
       fd.append('file', fileUpload.files[0]);
 
       let pathTemp = '';
-      if(this.path === '\\'){
+      if(this.pathF === '\\'){
         pathTemp = '';
       }else{
         pathTemp = this.path;
