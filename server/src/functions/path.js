@@ -1,5 +1,5 @@
 const path = require('path');
-const storage = '/Users/manuelgarcia/Storage';
+const storage = 'C:\\Users\\Jafet\\Desktop\\S.O\\Proyecto\\Archivos';
 
 const slash = process.platform === 'win32' ? '\\' : '/';
 
