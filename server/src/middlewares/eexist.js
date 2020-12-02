@@ -4,7 +4,7 @@ const eexist = (err, req, res, next) => {
   manageErr(err, {
     code: 'EEXIST',
     message: 'Directory already exists',
-    statusCode: 400,
+    statusCode: 200,
   });
   next(err);
 };

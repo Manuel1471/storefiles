@@ -28,13 +28,13 @@ router.post('/:path?', async(req,res,next)=>{
 	return next(err)
       }
 
-      return res.status(400).json({
+      return res.status(200).json({
 	success: false,
 	message: err.message,
 	path: directPath.relativePath
       });
     }
-    return res.status(400).json({
+    return res.status(200).json({
       success: true,
       message: 'Files successfully uploaded'
     });
